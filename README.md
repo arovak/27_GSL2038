@@ -1,19 +1,16 @@
-# GSL1680 Arduino driver
+# GSL2038 Arduino driver
 
-**This project is not in active development since I don't have the hardware anymore, but if a bug is found, please consider opening an issue or a pull request**
+The following pinout is for Wireless Tag WT-86-32-3ZW1
 
-pin | function  | Arduino Uno
-----|-----------|------------
-1   | SCL       | A5
-2   | SDA       | A4
-3   | VDD (3v3) | 3v3
-4   | Wake      | 4
-5   | Int       | 2
-6   | Gnd       | GND
+gpio | function
+---------------
+14   | SCL
+15   | SDA
+12   | RST
+13   | IRQ
 
 Warning : Firmware is really heavy so this library cannot be used in some Arduino boards
 
 ## Thanks
-Information gleaned from https://github.com/rastersoft/gsl1680 and various other sources
-Firmware for the specific panel was found here: http://www.buydisplay.com/default/5-inch-tft-lcd-module-800x480-display-w-controller-i2c-serial-spi
-Use part of wolfmanjm source code: https://github.com/wolfmanjm/GSL1680
+Driver is based on the work from Skallwar for the GSL1680 driver. Original source can be found here: https://github.com/Skallwar/GSL1680
+Firmware for the GSL2038 was found here: https://github.com/wireless-tag-com/8ms-esp32/tree/main/components/lvgl_esp32_drivers/qmsd_tp/gslx680
