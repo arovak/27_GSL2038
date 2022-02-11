@@ -11,4 +11,5 @@ gpio | function
 
 ## Thanks
 Driver is based on the work from Skallwar for the GSL1680 driver. Original source can be found here: https://github.com/Skallwar/GSL1680
+
 Firmware for the GSL2038 was found here: https://github.com/wireless-tag-com/8ms-esp32/tree/main/components/lvgl_esp32_drivers/qmsd_tp/gslx680
