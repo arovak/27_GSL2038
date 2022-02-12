@@ -30,7 +30,16 @@ GSL2038 TS = GSL2038();
 void setup () {
   Serial.begin(115200);
   delay(1000);
-  TS.begin(TOUCH_SDA, TOUCH_SCL, TOUCH_RST, TOUCH_IRQ);                 // Startup sequence CONTROLER part
+  if (Wire.begin(TOUCH_SDA, TOUCH_SCL, (uint32_t)400000U))
+  {
+    Serial.println("Wire started");
+  }
+  else
+  {
+    Serial.println("Wire failed");
+  }
+
+  TS.begin(TOUCH_RST, TOUCH_IRQ);                 // Startup sequence CONTROLER part
 }
 
 void loop () {

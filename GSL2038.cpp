@@ -37,7 +37,7 @@ GSL2038::GSL2038(bool error, bool info) {
     GSL2038_DEBUG_INFO = info;
 }
 
-void GSL2038::begin(uint8_t ioSDA, uint8_t ioSCL, uint8_t WAKE, uint8_t INTRPT)
+void GSL2038::begin(uint8_t WAKE, uint8_t INTRPT)
 {
     SERIAL_INFORMATION.println("GSL2038: Start boot up sequence");
     pinMode(WAKE, OUTPUT);          //
@@ -45,22 +45,13 @@ void GSL2038::begin(uint8_t ioSDA, uint8_t ioSCL, uint8_t WAKE, uint8_t INTRPT)
     pinMode(INTRPT, INPUT_PULLUP);  // Startup sequence PIN part
     delay(100);
 
-  SERIAL_INFORMATION.println("Toggle Wake");
+    SERIAL_INFORMATION.println("Toggle Wake");
 	digitalWrite(WAKE, HIGH);
 	delay(50);
 	digitalWrite(WAKE, LOW);
 	delay(50);
 	digitalWrite(WAKE, HIGH);
 	delay(30);
-
-    if (Wire.begin(ioSDA, ioSCL, (uint32_t)400000U))
-    {
-        SERIAL_INFORMATION.println("Wire started");
-    }
-    else
-    {
-        SERIAL_INFORMATION.println("Wire failed");
-    }
 
     // CTP startup sequence
 	SERIAL_INFORMATION.println("Reset chip");
